@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnSmart AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+            /* Fallback color */
+            background-image: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%);
+        }
+
+        header {
+            background-color: #3498db;
+            /* Blue background */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            background-color: #2980b9;
+            /* Darker blue for nav */
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #21618c;
+            /* Even darker blue on hover */
+        }
+       h2{
+        text-align:center;
+       }
+        .hero {
+            background-image: url("https://images.unsplash.com/photo-1542752898-144e7ea46d75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
+            /* Replace with your own image URL */
+            background-size: cover;
+            text-align: center;
+            padding: 100px 0;
+            color: #000;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 50px 0;
+        }
+
+        .feature {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .feature img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            line-height: 1.5;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #3498db;
+            /* Blue background */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .faq-container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            width: 100%;
+            margin: 10px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .faq-item:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px 0;
+            text-align: left;
+            color: #fff;
+        }
+
+        ul, ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+        .faq-answer.active {
+            display: block;
+            color:#000;
+            text-align:center;
+        }
+
+        @media (max-width: 768px) {
+            .feature {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>LearnSmart AI</h1>
+    </header>
+
+    <nav>
+        <ul>
+            
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Learn, Grow, Succeed</h1>
+        <p>Your AI-powered learning companion for a brighter future.</p>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <a href="/job"> 
+            <img src="https://img.icons8.com/?size=100&id=x0D0kU88lrmk&format=png&color=000000" alt="Job Search"></a>
+            <h3>Job Search</h3>
+            <p>Find your dream job with our advanced AI-powered job search engine.</p>
+        </div>
+
+        <div class="feature">
+            <a href="/resume"> 
+            <img src="https://img.icons8.com/ios-glyphs/90/000000/resume.png" alt="Resume Review"></a>
+            <h3>Resume Review</h3>
+            <p>Get expert feedback and suggestions to enhance your resume.</p>
+        </div>
+
+        <div class="feature">
+            <a href="/quiz">  
+            <img src="https://img.icons8.com/ios-glyphs/90/000000/quiz.png" alt="AI Quiz Maker"></a>
+            <h3>AI Quiz Maker</h3>
+            <p>Create interactive quizzes and test your knowledge with ease.</p>
+        </div>
+
+        <div class="feature">
+            <a href="/chatbot">
+            <img src="https://img.icons8.com/ios-glyphs/90/000000/chatbot.png" alt="Chatbot"></a>
+            <h3>Chatbot</h3>
+            <p>Get instant answers to your questions with our helpful AI chatbot.</p>
+        </div>
+
+        <div class="feature">
+            <a href="/codemaster"> 
+            <img src="https://img.icons8.com/ios-glyphs/90/000000/project-management.png" alt="Project Creator"></a> 
+            <h3>Project Creator</h3>
+            <p>Plan, organize, and collaborate on projects seamlessly.</p>
+        </div>
+
+        <div class="feature">
+           <a href="/note">
+            <img src="https://img.icons8.com/?size=100&id=Utu32Z-yKkor&format=png&color=000000" alt="Summary"></a>
+            <h3>Summary</h3>
+            <p>Get concise summaries of lengthy documents and articles.</p>
+        </div>
+
+        <div class="feature">
+          <a href="/speech">
+            <img src="https://img.icons8.com/?size=100&id=tDBw8g7GJ85x&format=png&color=000000" alt="Important Questions"></a>
+            <h3>Speech to text</h3>
+            <p>Speech-to-text technology converts spoken words into text, saving students time</p>
+        </div>
+
+        <div class="feature">
+            <a href="/scan-solve">
+            <img src="https://img.icons8.com/ios-glyphs/90/000000/upload.png" alt="Upload & Solve"></a>
+            <h3>Upload & Solve</h3>
+            <p>Upload your questions and get step-by-step solutions.</p>
+        </div>
+
+        <div class="feature">
+          <a href="/to-do-list">
+          <img src="https://img.icons8.com/ios-glyphs/90/000000/code.png" alt="To-Do List"></a>
+          <h3>To-Do List</h3>
+          <p>Stay organized and track your progress with our handy to-do list.</p>
+      </div>
+
+        <div class="feature">
+            <a href="/timer">
+            <img src="https://img.icons8.com/ios-glyphs/90/000000/timer.png" alt="Pomodoro Timer"></a>
+            <h3>Pomodoro Timer</h3>
+            <p>Improve your focus and productivity with the Pomodoro technique.</p>
+        </div>
+
+        
+
+        <div class="feature">
+          <a href="/draw">
+          <img src="https://img.icons8.com/?size=100&id=8190&format=png&color=000000" alt="Draw & Guess"></a>
+          <h3>Draw & Guess</h3>
+          <p>Relax and have fun with our interactive drawing and guessing game.</p>
+      </div>
+
+        
+
+        <div class="feature">
+          <a href="/translator">
+            <img src="https://img.icons8.com/ios-glyphs/90/000000/education.png" alt="Study Aid"></a>
+            <h3>Universal translator</h3>
+            <p>Using translator to improve language skills and learn from it.</p>
+        </div>
+
+        
+    </section>
+
+    <h2>Frequently asked questions</h2>
+   
+    <div class="faq-container">
+        <div class="faq-item" onclick="toggleFAQ(this)">Benefits of LearnSmart AI</div>
+        <div class="faq-answer">
+            <ul>
+                <li>Having a good resume will increase the chances of getting hired.</li>
+                <li>Job search made simple with advanced AI features.</li>
+                <li>Achievement will boost motivation and productivity.</li>
+                <li>Using translator to improve language skills and learn from it.</li>
+            </ul>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">AI Quiz Maker</div>
+        <div class="faq-answer">
+            <ul>
+                <li>Create instant quizzes and assess your knowledge efficiently.</li>
+                <li>Engage in interactive learning experiences.</li>
+                <li>Develop quizzes tailored to your specific needs.</li>
+            </ul>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">Chatbot</div>
+        <div class="faq-answer">
+            <ul>
+                <li>Makes learning interactive and interesting.</li>
+                <li>Provides instant answers and guidance.</li>
+                <li>Enhances user experience with personalized assistance.</li>
+            </ul>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">Pomodoro Timer</div>
+        <div class="faq-answer">
+            <ul>
+                <li>Improves focus and productivity.</li>
+                <li>Helps manage time efficiently.</li>
+                <li>Reduces distractions and enhances concentration.</li>
+            </ul>
+        </div>
+
+        <!-- Add more FAQ items as needed -->
+
+    </div>
+    <footer>
+      <p>&copy; 2023 LearnSmart AI</p>
+  </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            element.nextElementSibling.classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>

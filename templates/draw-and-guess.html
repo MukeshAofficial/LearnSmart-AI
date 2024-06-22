@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background: linear-gradient(to bottom, #ff6699, #ffcc99);
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#canvas {
+  border: 2px solid #333;
+  background: #fff;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.color-box {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #333;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.color-box.active {
+  border: 2px solid #000;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>Draw and Let AI Guess</h1>
+
+<div class="container">
+  <div class="color-picker">
+    <div class="color-box active" style="background-color: black;"></div>
+    <div class="color-box" style="background-color: red;"></div>
+    <div class="color-box" style="background-color: blue;"></div>
+    <div class="color-box" style="background-color: green;"></div>
+    <div class="color-box" style="background-color: yellow;"></div>
+    <div class="color-box" style="background-color: white; border: 1px solid #333;"></div>
+  </div>
+  <canvas id="canvas" width="500" height="400"></canvas>
+</div>
+
+<button onclick="saveDrawing()">AI Guess</button>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const colorBoxes = document.querySelectorAll('.color-box');
+
+let isDrawing = false;
+let currentColor = 'black';
+
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', stopDrawing);
+
+colorBoxes.forEach(box => {
+  box.addEventListener('click', () => {
+    colorBoxes.forEach(b => b.classList.remove('active'));
+    box.classList.add('active');
+    currentColor = box.style.backgroundColor;
+  });
+});
+
+function startDrawing(e) {
+  isDrawing = true;
+  ctx.beginPath();
+  ctx.moveTo(e.offsetX, e.offsetY);
+}
+
+function draw(e) {
+  if (isDrawing) {
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.strokeStyle = currentColor;
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
+}
+
+function stopDrawing() {
+  isDrawing = false;
+}
+
+function saveDrawing() {
+  const dataURL = canvas.toDataURL();
+  fetch('/guess', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ image: dataURL })
+  });
+}
+</script>
+
+</body>
+</html>
